@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeCoding Academy - Mini E-Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="container">
+        <header>
+            <div class="logo">🎓 VibeCoding Academy</div>
+            <div class="user-section">
+                <div class="user-info" id="userInfo">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <span id="userName">User</span>
+                    <button class="btn-secondary" id="logoutBtn">Logout</button>
+                </div>
+                <button class="btn-primary" id="loginBtn">Login</button>
+                <button class="btn-secondary" id="signupBtn">Sign Up</button>
+            </div>
+        </header>
+
+        <!-- Courses Section -->
+        <div class="courses-section">
+            <div class="section-header">
+                <h2>Available Courses</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                    <button class="filter-btn" data-filter="in-progress">In Progress</button>
+                </div>
+            </div>
+            
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Courses will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon">📚</div>
+                <div class="stat-number" id="totalCourses">6</div>
+                <div class="stat-label">Total Courses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-number" id="completedCourses">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-number" id="inProgressCourses">0</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <h2>Welcome Back!</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Login</button>
+            </form>
+            <div class="auth-toggle">
+                Don't have an account? <a id="switchToSignup">Sign Up</a>
+            </div>
+            <button class="close-modal" id="closeLoginModal">✕</button>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <h2>Create Account</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Sign Up</button>
+            </form>
+            <div class="auth-toggle">
+                Already have an account? <a id="switchToLogin">Login</a>
+            </div>
+            <button class="close-modal" id="closeSignupModal">✕</button>
+        </div>
+    </div>
+
+    <!-- Course Detail Modal -->
+    <div class="modal" id="courseModal">
+        <div class="modal-content course-detail">
+            <h2 id="courseTitle"></h2>
+            <div class="course-meta">
+                <span class="course-instructor" id="courseInstructor"></span>
+                <span class="course-duration" id="courseDuration"></span>
+            </div>
+            <p id="courseDescription"></p>
+            
+            <div class="course-lessons">
+                <h3>Course Lessons</h3>
+                <ul id="courseLessonsList"></ul>
+            </div>
+            
+            <div class="course-actions">
+                <button class="btn-primary" id="markCompleteBtn">Mark as Complete</button>
+                <button class="btn-secondary" id="startCourseBtn">Start Learning</button>
+            </div>
+            
+            <button class="close-modal" id="closeCourseModal">✕</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
